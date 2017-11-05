@@ -1,2 +1,2 @@
 # sensim
-Cluster sentences similarity.
+Sentences's similarity clustering.
