@@ -17,3 +17,13 @@ class Sensim:
 
         self.ids = []
         self.data_list = []
+
+        self._f2l(f)
+
+        self.data_size = len(self.data_list)
+
+    def _f2l(self, f):
+        for line in f:
+            id, data = line.rstrip('\n\r').split(',', 1)
+            self.ids.append(id)
+            self.data_list.append(data)
