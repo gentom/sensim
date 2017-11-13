@@ -3,7 +3,7 @@
 
 import codecs
 from distance import levenshtein
-from scipy.cluster.hierarchy import linkage, dendrogram
+from scipy.cluster.hierarchy import linkage
 
 class Sensim:
     def __init__(self, datafile):
@@ -33,6 +33,9 @@ class Sensim:
             for j in range(i+1, self.data_size):
                 similarity = levenshtein(self.data_list[i], self.data_list[j])
                 self.distances.append(similarity)
+    
+    def get_ids(self):
+        return self.ids
     
     def ward(self):
         return linkage(self.distances, method='ward')
