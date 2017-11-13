@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys
 import codecs
 from distance import levenshtein
 from scipy.cluster.hierarchy import linkage, dendrogram
@@ -20,8 +19,8 @@ class Sensim:
         self.distances = []
 
         self._f2l(f)
-
         self.data_size = len(self.data_list)
+        self._distance()
 
     def _f2l(self, f):
         for line in f:
@@ -29,7 +28,7 @@ class Sensim:
             self.ids.append(id)
             self.data_list.append(data)
 
-    def distance(self):
+    def _distance(self):
         for i in range(self.data_size - 1):
             for j in range(i+1, self.data_size):
                 similarity = levenshtein(self.data_list[i], self.data_list[j])
