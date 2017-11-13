@@ -3,9 +3,8 @@
 
 import sys
 import codecs
-import distance
+from distance import levenshtein
 from scipy.cluster.hierarchy import linkage, dendrogram
-from matplotlib import pyplot as plt
 
 class Sensim:
     def __init__(self, datafile):
@@ -17,6 +16,8 @@ class Sensim:
 
         self.ids = []
         self.data_list = []
+        self.data_size = 0
+        self.distances = []
 
         self._f2l(f)
 
@@ -27,3 +28,12 @@ class Sensim:
             id, data = line.rstrip('\n\r').split(',', 1)
             self.ids.append(id)
             self.data_list.append(data)
+
+    def distance(self):
+        for i in range(self.data_size - 1):
+            for j in range(i+1, self.data_size):
+                similarity = levenshtein(self.data_list[i], self.data_list[j])
+                self.distances.append(similarity)
+    
+    def ward(self):
+        return linkage(self.distances, method='ward')
