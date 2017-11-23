@@ -1,4 +1,4 @@
-# sensim
+# sensim_cluster
 Sentences's similarity clustering.
 
 ## Requirements
