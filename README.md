@@ -1,5 +1,6 @@
 # sensim
-Sentence similarity processing.
+Sentence similarity processing.  
+Currently only support for sentence similarity clustering.
 
 ## Requirements
 * python 3.*
