@@ -1,5 +1,5 @@
-# sensim_cluster
-Sentences's similarity clustering.
+# sensim
+Sentence similarity processing.
 
 ## Requirements
 * python 3.*
